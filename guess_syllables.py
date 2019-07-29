@@ -83,8 +83,9 @@ while (inp != "!exit") and (remain_words > 0):
         go_next = False        
     input()
 
-done_words.sort(key=lambda word : word.wrong_ans)
+done_words.sort(key=lambda word : -word.wrong_ans)
 with open ("game_statistics.txt", "w") as f:
+    f.write("word\twrong_answers\terrors\n")
     for word in done_words:
         f.write(word.word + "\t" + str(word.wrong_ans) + "\t" + str(word.wrong_ans_words) + "\n")
 
